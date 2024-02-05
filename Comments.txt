@@ -2,3 +2,4 @@ Recordar usar viewData en el cap 02
 Recordar pasar todo a comillas simples
 Actualizar python a la última versión, ojo que es -V mayuscula 
 font size de templates C04
+model del 5 usar el del 6
