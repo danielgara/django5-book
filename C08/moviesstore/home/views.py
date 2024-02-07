@@ -1,11 +1,11 @@
 from django.shortcuts import render
 
 def index(request):
-    viewData = {}
-    viewData["title"] = "Movies Store"
-    return render(request, 'home/index.html', {"viewData": viewData})
+    templateData = {}
+    templateData["title"] = "Movies Store"
+    return render(request, 'home/index.html', {"templateData": templateData})
 
 def about(request):
-    viewData = {}
-    viewData["title"] = "About"
-    return render(request, 'home/about.html', {"viewData": viewData})
+    templateData = {}
+    templateData["title"] = "About"
+    return render(request, 'home/about.html', {"templateData": templateData})

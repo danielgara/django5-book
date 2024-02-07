@@ -3,3 +3,7 @@ Recordar pasar todo a comillas simples
 Actualizar python a la última versión, ojo que es -V mayuscula 
 font size de templates C04
 model del 5 usar el del 6
+- id + name para el chapter 07 de movies en admin
+- templateData usar en todo
+- corregir en chapter 06 que la img src si sea de la imagen de bd
+- pasar flake8 al final del libro

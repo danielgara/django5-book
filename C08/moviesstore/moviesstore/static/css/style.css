@@ -46,3 +46,7 @@
 .ms-footer-bottom a:hover {
   color: #fff;
 }
+
+ul.errorlist {
+  display:none;
+}
