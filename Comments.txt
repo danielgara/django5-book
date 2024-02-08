@@ -13,3 +13,6 @@ model del 5 usar el del 6
 - quizas id cambiarlo por movie_id en los paths
 - poner bg-dark y text white a todos los botones
 - cambiar variables y funciones a camel_case
+- templatetags hay que crear el __init__.py file
+- relación hasmany para capítulo de las reviews
+- ordenar atributos por primitivos primero y luego no primitivos en models
