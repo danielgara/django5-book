@@ -10,9 +10,10 @@ def index(request):
     return render(request, 'movies/index.html', {'template_data': template_data})
 
 def show(request, id):
-    template_data = {}
     movie = Movie.objects.get(id=id)
     reviews = Review.objects.filter(movie=movie)
+
+    template_data = {}
     template_data['title'] = movie.name
     template_data['movie'] = movie
     template_data['reviews'] = reviews

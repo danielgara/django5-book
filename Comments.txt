@@ -16,3 +16,5 @@ model del 5 usar el del 6
 - templatetags hay que crear el __init__.py file
 - relación hasmany para capítulo de las reviews
 - ordenar atributos por primitivos primero y luego no primitivos en models
+- definir el template data completo justo antes del render cuando sea posible
+- acceder a relacion reviews en template? en lugar de cargarlo desde el view?
