@@ -10,3 +10,6 @@ model del 5 usar el del 6
 - chapter donde se listan movies individuales, ponerle max-heigt 400px y h2 para el titulo
 - en el chapter de accounts hay que agregar en el settings el LOGIN_URL
 - colocar / al final de todas las url menos las vacías
+- quizas id cambiarlo por movie_id en los paths
+- poner bg-dark y text white a todos los botones
+- cambiar variables y funciones a camel_case
