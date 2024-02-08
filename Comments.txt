@@ -7,3 +7,6 @@ model del 5 usar el del 6
 - templateData usar en todo
 - corregir en chapter 06 que la img src si sea de la imagen de bd
 - pasar flake8 al final del libro
+- chapter donde se listan movies individuales, ponerle max-heigt 400px y h2 para el titulo
+- en el chapter de accounts hay que agregar en el settings el LOGIN_URL
+- colocar / al final de todas las url menos las vacías
