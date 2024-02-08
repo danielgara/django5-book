@@ -19,3 +19,5 @@ model del 5 usar el del 6
 - definir el template data completo justo antes del render cuando sea posible
 - acceder a relacion reviews en template? en lugar de cargarlo desde el view?
 - añadir busqueda de peliculas
+- h2 para titulos principales en lugar de b
+- movies show mejorado en C12

@@ -13,11 +13,11 @@ def logout(request):
 
 def signup(request):
     template_data = {}
-    template_data["title"] = "Sign Up"
+    template_data['title'] = 'Sign Up'
 
     if request.method == 'GET':
-        template_data["form"] = UserCreateForm()
-        return render(request, 'accounts/signup.html', {"template_data": template_data})
+        template_data['form'] = UserCreateForm()
+        return render(request, 'accounts/signup.html', {'template_data': template_data})
     else:
         form = UserCreateForm(request.POST)
         if form.is_valid():
@@ -30,29 +30,36 @@ def signup(request):
                 auth_login(request, user)
                 return redirect('home.index')
             except IntegrityError as error:
-                template_data["error"] = [error]
+                template_data['error'] = [error]
         else:
             error_list = []
             for field, errors in form.errors.items():
                 for error in errors:
                     error_list.append(error)
 
-            template_data["error"] = error_list
+            template_data['error'] = error_list
 
-        template_data["form"] = form
-        return render(request, 'accounts/signup.html', {"template_data": template_data})
+        template_data['form'] = form
+        return render(request, 'accounts/signup.html', {'template_data': template_data})
 
 def login(request):
     template_data = {}
-    template_data["title"] = "Login"
+    template_data['title'] = 'Login'
     if request.method == 'GET':
-        return render(request, 'accounts/login.html', {"template_data": template_data})
+        return render(request, 'accounts/login.html', {'template_data': template_data})
     else:
         user = authenticate(request, username=request.POST['username'],
                             password=request.POST['password'])
         if user is None:
-            template_data["error"] = 'The username or password is incorrect.'
-            return render(request, 'accounts/login.html', {"template_data": template_data})
+            template_data['error'] = 'The username or password is incorrect.'
+            return render(request, 'accounts/login.html', {'template_data': template_data})
         else:
             auth_login(request, user)
             return redirect('home.index')
+
+@login_required
+def orders(request):
+    template_data = {}
+    template_data['title'] = 'Orders'
+    template_data['orders'] = request.user.order_set.all()
+    return render(request, 'accounts/orders.html', {'template_data': template_data})

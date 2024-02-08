@@ -6,8 +6,6 @@ from .utils import calculate_cart_total
 from django.contrib.auth.decorators import login_required
 
 def index(request):
-    template_data = {}
-    template_data['title'] = 'Cart'
     cart_total = 0
     movies_in_cart = []
     cart = request.session.get('cart', {})
@@ -16,6 +14,8 @@ def index(request):
         movies_in_cart = Movie.objects.filter(id__in=movie_ids)
         cart_total = calculate_cart_total(cart, movies_in_cart)
 
+    template_data = {}
+    template_data['title'] = 'Cart'
     template_data['movies_in_cart'] = movies_in_cart
     template_data['cart_total'] = cart_total
     return render(request, 'cart/index.html', {'template_data': template_data})
