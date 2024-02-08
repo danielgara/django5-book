@@ -21,7 +21,7 @@
           </tr>
         </thead>
         <tbody>
-          {% for movie in templateData.movies_in_cart %}
+          {% for movie in template_data.movies_in_cart %}
           <tr>
             <td>{{ movie.id }}</td>
             <td>{{ movie.name }}</td>
@@ -34,9 +34,9 @@
     </div>
     <div class="row">
       <div class="text-end">
-        <a class="btn btn-outline-secondary mb-2"><b>Total to pay:</b> ${{ templateData.cart_total }}</a>
+        <a class="btn btn-outline-secondary mb-2"><b>Total to pay:</b> ${{ template_data.cart_total }}</a>
 
-        {% if templateData.movies_in_cart|length > 0 %}
+        {% if template_data.movies_in_cart|length > 0 %}
         <a href="#" class="btn bg-dark text-white mb-2">Purchase</a>
         <a href="{% url 'cart.clear_cart' %}">
           <button class="btn btn-danger mb-2">

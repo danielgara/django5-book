@@ -4,19 +4,19 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 
 def index(request):
-    templateData = {}
-    templateData['title'] = 'Movies'
-    templateData['movies'] = Movie.objects.all()
-    return render(request, 'movies/index.html', {'templateData': templateData})
+    template_data = {}
+    template_data['title'] = 'Movies'
+    template_data['movies'] = Movie.objects.all()
+    return render(request, 'movies/index.html', {'template_data': template_data})
 
 def show(request, id):
-    templateData = {}
+    template_data = {}
     movie = Movie.objects.get(id=id)
     reviews = Review.objects.filter(movie=movie)
-    templateData['title'] = movie.name
-    templateData['movie'] = movie
-    templateData['reviews'] = reviews
-    return render(request, 'movies/show.html', {'templateData': templateData})
+    template_data['title'] = movie.name
+    template_data['movie'] = movie
+    template_data['reviews'] = reviews
+    return render(request, 'movies/show.html', {'template_data': template_data})
 
 @login_required
 def create_review(request, id):

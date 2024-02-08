@@ -5,12 +5,12 @@
   <div class="container">
     <div class="row mt-3">
       <div class="col-md-6 mx-auto mb-3">
-        <h2>{{ templateData.movie.name }}</h2>
+        <h2>{{ template_data.movie.name }}</h2>
         <hr />
-        <p><b>Description:</b> {{ templateData.movie.description }}</p>
-        <p><b>Price:</b> ${{ templateData.movie.price }}</p>
+        <p><b>Description:</b> {{ template_data.movie.description }}</p>
+        <p><b>Price:</b> ${{ template_data.movie.price }}</p>
         <p class="card-text">
-        <form method="post" action="{% url 'cart.add_to_cart' id=templateData.movie.id %}">
+        <form method="post" action="{% url 'cart.add_to_cart' id=template_data.movie.id %}">
           <div class="row">
             {% csrf_token %}
             <div class="col-auto">
@@ -29,7 +29,7 @@
         <h2>Reviews</h2>
         <hr />
         <ul class="list-group">
-          {% for review in templateData.reviews %}
+          {% for review in template_data.reviews %}
           <li class="list-group-item pb-3 pt-3">
             <h5 class="card-title">
               Review by {{ review.user.username }}
@@ -40,7 +40,7 @@
             <p class="card-text">{{ review.comment }}</p>
             {% if user.is_authenticated and user == review.user %}
             <a class="btn btn-danger"
-              href="{% url 'movies.delete_review' id=templateData.movie.id review_id=review.id %}">
+              href="{% url 'movies.delete_review' id=template_data.movie.id review_id=review.id %}">
               Delete
             </a>
             {% endif %}
@@ -55,14 +55,14 @@
               <div class="card shadow p-3 mb-4 rounded">
                 <div class="card-body">
                   <b class="text-start">Create a review</b><br /><br />
-                  {% if templateData.error %}
+                  {% if template_data.error %}
                   <div class="alert alert-danger mt-3" role="alert">
                     <ul class="mb-0">
-                      <li>{{ templateData.error }}</li>
+                      <li>{{ template_data.error }}</li>
                     </ul>
                   </div>
                   {% endif %}
-                  <form method="POST" action="{% url 'movies.create_review' id=templateData.movie.id %}">
+                  <form method="POST" action="{% url 'movies.create_review' id=template_data.movie.id %}">
                     {% csrf_token %}
                     <p>
                       <label for="comment">Comment:</label>
@@ -83,7 +83,7 @@
         {% endif %}
       </div>
       <div class="col-md-6 mx-auto mb-3 text-center">
-        <img src="{{ templateData.movie.image.url }}" style="max-height: 400px; width: fit-content;" alt="about" />
+        <img src="{{ template_data.movie.image.url }}" style="max-height: 400px; width: fit-content;" alt="about" />
       </div>
     </div>
   </div>
